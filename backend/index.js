@@ -31,7 +31,7 @@ app.use(
 );
 
 io.on("connection", (socket) => {
-  if (activeUsers.length >= 1) {
+  if (activeUsers.length >= 3) {
     socket.emit("error", "No more users allowed!");
     socket.disconnect();
     return;
@@ -41,11 +41,11 @@ io.on("connection", (socket) => {
   activeUsers.push(socket.id);
   console.log(activeUsers.length);
 
-  if (activeUsers.length === 1) {
+  if (activeUsers.length === 3) {
     questionStartsTime = Date.now();
 
     console.log(activeUsers);
-    question = "what is -10 + 10";
+    question = "what will be the output of typeof NaN";
     response = [];
     io.emit("question", questions);
     console.log("Question sent to all users:", question);
@@ -60,7 +60,7 @@ io.on("connection", (socket) => {
     });
     console.log(response);
 
-    if (response.length === 1) {
+    if (response.length === 3) {
       const firstResponder = response.sort((a, b) => {
         return a.TimeTaken - b.TimeTaken;
       })[0];
