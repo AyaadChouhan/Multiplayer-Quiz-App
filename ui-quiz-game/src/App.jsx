@@ -3,8 +3,7 @@ import { io } from "socket.io-client";
 import { useState, useEffect } from "react";
 const socket = io("http://localhost:3000");
 import "./App.css";
-console.log(io);
-console.log(socket);
+
 function App() {
   const [question, setQuestion] = useState(null);
   const [result, setResult] = useState(null);
