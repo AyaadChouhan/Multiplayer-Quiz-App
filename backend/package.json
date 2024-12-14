@@ -2,6 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js"
   },
@@ -13,7 +14,9 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "http": "^0.0.1-security",
-    "node": "^22.12.0",
     "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.4"
   }
 }

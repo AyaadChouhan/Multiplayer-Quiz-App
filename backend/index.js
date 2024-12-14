@@ -1,17 +1,18 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const http = require("http");
-const { Server } = require("socket.io");
+import * as dotenv from "dotenv";
+import express from "express";
+import cors from "cors";
+import { createServer } from "http";
+import { Server } from "socket.io";
 
+dotenv.config();
 const app = express();
-const server = http.createServer(app);
+const server = createServer(app);
 const io = new Server(server, {
   cors: {
     origin: "*",
   },
 });
-
+app.use(express.json())
 const questions = [
   "what will be the output of -10 + 10",
   "what will be the output of 'a' === 1 ",
@@ -29,6 +30,10 @@ app.use(
     method: ["GET", "POST"],
   })
 );
+
+app.get('/greet', (req, res) => {
+  res.json({ message: 'Hello, welcome to the Multiplayer Quiz Game API!' });
+});
 
 io.on("connection", (socket) => {
   if (activeUsers.length >= 3) {
@@ -81,10 +86,6 @@ io.on("connection", (socket) => {
     activeUsers = activeUsers.filter((user) => user !== socket.id);
     console.log(activeUsers);
   });
-});
-
-app.get("/", (req, res) => {
-  res.send("server is running perfectly");
 });
 
 const port = process.env.PORT;

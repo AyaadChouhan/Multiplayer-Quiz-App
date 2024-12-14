@@ -1,0 +1,64 @@
+{
+    "posts": [
+      { "id": "1", "title": "a title", "views": 100 },
+      { "id": "2", "title": "another title", "views": 200 }
+    ],
+    "comments": [
+      { "id": "1", "text": "a comment about post 1", "postId": "1" },
+      { "id": "2", "text": "another comment about post 1", "postId": "1" }
+    ],
+    "profile": {
+      "name": "typicode"
+    },
+    "questions": [
+      {
+        "id": "1",
+        "question": "Who is known as the Father of the Indian Constitution?",
+        "options": {
+          "a": "Mahatma Gandhi",
+          "b": "Jawaharlal Nehru",
+          "c": "B. R. Ambedkar",
+          "d": "Sardar Patel"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "id": "2",
+        "question": "What is the capital of France?",
+        "options": {
+          "a": "Berlin",
+          "b": "Madrid",
+          "c": "Rome",
+          "d": "Paris"
+        },
+        "correctAnswer": "d"
+      }
+    ],
+    "players": [
+      {
+        "id": "1",
+        "name": "Player One",
+        "score": 0
+      },
+      {
+        "id": "2",
+        "name": "Player Two",
+        "score": 0
+      }
+    ],
+    "gameSettings": {
+      "lifelines": ["50-50", "Phone a Friend", "Ask the Audience", "Double Dip"],
+      "prizeMoney": [
+        1000,
+        2000,
+        5000,
+        10000,
+        20000,
+        50000,
+        100000,
+        250000,
+        500000,
+        1000000
+      ]
+    }
+  }
